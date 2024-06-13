@@ -1,0 +1,60 @@
+﻿@model List<BloodDonorInfo>
+
+@{
+    ViewData["Title"] = "Get Blood Bank By City";
+}
+
+<h2>Get Blood donor By group</h2>
+<hr />
+
+<form asp-action="GetDonorByGroup" method="post">
+    <div class="form-group">
+        <label for="city">Blood Group</label>
+        <select type="text" class="form-control">
+            <option value="A+">A+</option>
+            <option value="A-">A-</option>
+            <option value="B+">B+</option>
+            <option value="B-">B-</option>
+            <option value="O+">O+</option>
+            <option value="O-">O-</option>
+            <option value="AB+">AB+</option>
+            <option value="AB-">AB-</option>
+        </select>
+    </div>
+    <button type="submit" class="btn btn-primary">Search</button>
+</form>
+
+@if (Model != null && Model.Count > 0)
+{
+    <h3>Blood Banks</h3>
+    <table class="table table-danger">
+        <thead>
+            <tr>
+                <th>BloodDonor Name</th>
+                <th>Blood Group</th>
+                <th>Contact Number</th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var donor in Model)
+            {
+                <tr>
+                    <td>@donor.FirstName&nbsp;@donor.LastName</td>
+                    <td>@donor.BloodGroup</td>
+                    <td>@donor.ContactNumber</td>
+                    <td>
+                        <a asp-action="Details" asp-route-id="@donor.Id" class="btn btn-primary">
+                            View Details
+                            <img style="width:22px;" src="./Images/dt.png" />
+                        </a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}
+else if (Model != null)
+{
+    <p>No blood donor found in the specified city.</p>
+}

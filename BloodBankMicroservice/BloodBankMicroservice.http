@@ -1,0 +1,6 @@
+@BloodBankMicroservice_HostAddress = http://localhost:5051
+
+GET {{BloodBankMicroservice_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###

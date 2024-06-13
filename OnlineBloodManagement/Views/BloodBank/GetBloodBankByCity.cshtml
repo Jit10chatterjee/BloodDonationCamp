@@ -1,0 +1,51 @@
+﻿@model List<BloodBankInfo>
+
+@{
+    ViewData["Title"] = "Get Blood Bank By City";
+}
+
+<h3 class="fst-italic">Get Blood Bank By City</h3>
+<hr/>
+
+<form asp-action="GetBloodBankByCity" method="post">
+    <div class="form-group">
+        <label for="city">City:</label>
+        <input type="text" class="form-control" id="city" name="city" />
+    </div>
+    <button type="submit" class="btn btn-primary mt-2">Search</button>
+</form>
+
+@if (Model != null && Model.Count > 0)
+{
+    <h3>Blood Banks</h3>
+    <table class="table table-danger">
+        <thead>
+            <tr>              
+                <th>Blood Bank Name</th>
+                <th>City</th>               
+                <th>Contact Number</th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var bloodBank in Model)
+            {
+                <tr>
+                    <td>@bloodBank.BloodBankName</td>
+                    <td>@bloodBank.City</td>
+                    <td>@bloodBank.ContactNumber</td>
+                    <td>
+                        <a asp-action="Details" asp-route-id="@bloodBank.Id">
+                            View Details
+                            <img style="width:22px;" src="./Images/dt.png" />
+                        </a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}
+else if (Model != null)
+{
+    <p>No blood banks found in the specified city.</p>
+}

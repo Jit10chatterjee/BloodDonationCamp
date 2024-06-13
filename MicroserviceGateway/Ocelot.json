@@ -1,0 +1,100 @@
+{
+  "Routes": [
+    {
+      "UpstreamPathTemplate": "/BloodBankService",
+      "UpstreamHttpMethod": [ "Get", "Post" ],
+      "DownstreamPathTemplate": "/BloodBank",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 22111
+        }
+      ]
+    },
+    {
+      "UpstreamPathTemplate": "/BloodBankService/{id}",
+      "UpstreamHttpMethod": [ "Get", "Delete" ],
+      "DownstreamPathTemplate": "/BloodBank/{id}",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 22111
+        }
+      ]
+    },
+    {
+      "UpstreamPathTemplate": "/BloodBankService/find/{city}",
+      "UpstreamHttpMethod": [ "Get" ],
+      "DownstreamPathTemplate": "/BloodBank/find/{city}",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 22111
+        }
+      ]
+    },
+    {
+      "UpstreamPathTemplate": "/BloodBankService/Modified/{id}",
+      "UpstreamHttpMethod": [ "Put" ],
+      "DownstreamPathTemplate": "/BloodBank/Modified/{id}",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 22111
+        }
+      ]
+    },
+    {
+      "UpstreamPathTemplate": "/BloodDonorService",
+      "UpstreamHttpMethod": [ "Get", "Post" ],
+      "DownstreamPathTemplate": "/BloodDonor",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 35105
+        }
+      ]
+    },
+    {
+      "UpstreamPathTemplate": "/BloodDonorService/{id}",
+      "UpstreamHttpMethod": [ "Get", "Delete" ],
+      "DownstreamPathTemplate": "/BloodDonor/{id}",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 35105
+        }
+      ]
+    },
+    {
+      "UpstreamPathTemplate": "/BloodDonorService/bgroup/{group}",
+      "UpstreamHttpMethod": [ "Get" ],
+      "DownstreamPathTemplate": "/BloodDonor/bgroup/{group}",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 35105
+        }
+      ]
+    },
+    {
+      "UpstreamPathTemplate": "/BloodDonorService/Modified/{id}",
+      "UpstreamHttpMethod": [ "Put" ],
+      "DownstreamPathTemplate": "/BloodDonor/Modified/{id}",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 35105
+        }
+      ]
+    },
+  ]
+}

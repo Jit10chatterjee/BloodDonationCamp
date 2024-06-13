@@ -1,0 +1,51 @@
+﻿@model IEnumerable<OnlineBloodManagement.Models.BloodDonorInfo>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h3 class="fst-italic">List of Blood Donors</h3>
+
+<p>
+    <a asp-action="Create" class="btn btn-primary">Create New</a>
+    <a asp-action="GetDonorByGroup" class="btn btn-primary">Search by blood group</a>
+</p>
+<table class="table table-danger">
+    <thead>
+        <tr>
+           
+            <th>
+                @Html.DisplayNameFor(model => model.FirstName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.LastName)
+            </th>          
+            <th>
+                @Html.DisplayNameFor(model => model.BloodGroup)
+            </th>            
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            
+            <td>
+                @Html.DisplayFor(modelItem => item.FirstName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.LastName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.BloodGroup)
+            </td>
+            <td>
+                <a asp-action="Details" asp-route-id="@item.Id">
+                    View Details
+                    <img style="width:22px;" src="./Images/dt.png" />
+                </a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
